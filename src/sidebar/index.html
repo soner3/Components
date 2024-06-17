@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/output.css" />
+    <title>Sidebar</title>
+  </head>
+  <body>
+    <nav
+      class="flex justify-between p-2 bg-white shadow-xl dark:bg-slate-900 dark:text-white fixed w-full"
+    >
+      <div class="flex justify-between items-center">
+        <button id="toggleSidebar">
+          <div
+            class="flex items-center justify-center cursor-pointer p-2 rounded-full hover:bg-slate-200 dark:hover:text-black"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-8"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </div>
+        </button>
+        <h1 class="p-2 text-black dark:text-white text-2xl font-bold">Logo</h1>
+      </div>
+    </nav>
+    <!-- <div
+      class="h-screen bg-gradient-to-b from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700"
+    ></div> -->
+
+    <!-- Hauptinhalt -->
+    <div class="flex h-screen">
+      <!-- Sidebar (versteckt) -->
+      <div
+        id="sidebar"
+        class="sidebar bg-gradient-to-b from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700 fixed z-20 md:z-0 h-screen left-0 w-64 transform -translate-x-full transition duration-300 ease-in-out text-white rounded-r-2xl"
+      >
+        <!-- Inhalt der Sidebar -->
+        <div class="p-4">
+          <p class="text-xl font-bold">Sidebar</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      // JavaScript, um die Sidebar zu steuern
+      const sidebar = document.getElementById("sidebar");
+      const toggleSidebarButton = document.getElementById("toggleSidebar");
+
+      toggleSidebarButton.addEventListener("click", function () {
+        sidebar.classList.toggle("-translate-x-full");
+      });
+    </script>
+  </body>
+</html>
