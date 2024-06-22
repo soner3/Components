@@ -1,4 +1,4 @@
-export function applyTheme() {
+export function applyTheme(): void {
   if (
     localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&
@@ -10,17 +10,17 @@ export function applyTheme() {
   }
 }
 
-export function setLightMode() {
+export function setLightMode(): void {
   localStorage.theme = "light";
   applyTheme();
 }
 
-export function setDarkMode() {
+export function setDarkMode(): void {
   localStorage.theme = "dark";
   applyTheme();
 }
 
-export function setSystemMode() {
+export function setSystemMode(): void {
   localStorage.removeItem("theme");
   applyTheme();
 }
