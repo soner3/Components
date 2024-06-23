@@ -1,6 +1,6 @@
 export function applyTheme(): void {
   if (
-    localStorage.theme === "dark" ||
+    localStorage.theme === "Dark" ||
     (!("theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
@@ -11,12 +11,12 @@ export function applyTheme(): void {
 }
 
 export function setLightMode(): void {
-  localStorage.theme = "light";
+  localStorage.theme = "Light";
   applyTheme();
 }
 
 export function setDarkMode(): void {
-  localStorage.theme = "dark";
+  localStorage.theme = "Dark";
   applyTheme();
 }
 
