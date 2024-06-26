@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { applyTheme } from "./Components/DarkMode.tsx";
+import { applyTheme } from "./Components/Navbar/DarkmodeFunctions.ts";
 
 applyTheme();
 
