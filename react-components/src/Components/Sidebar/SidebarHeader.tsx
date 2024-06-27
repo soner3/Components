@@ -57,7 +57,7 @@ export default function SidebarHeader({
               value={search}
               placeholder="Search"
               onChange={handleSearchChange}
-              className="rounded-r-full p-2 focus:ring-2 duration-500 outline-none w-64 xl:w-96 dark:text-black"
+              className="rounded-r-full p-2 focus:ring-2 duration-500 outline-none w-64 xl:w-96 text-black"
             />
           </form>
         </>

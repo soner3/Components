@@ -10,10 +10,16 @@ function App() {
   }
 
   return (
-    <div>
+    <>
       <Navbar handleIsClicked={handleIsClicked} isClicked={isClicked} />
       <Sidebar isClicked={isClicked} handleIsClicked={handleIsClicked} />
-    </div>
+      <main className="pt-2 px-2 md:ml-[70px] dark:text-white">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+        saepe ea ratione alias in molestias. Excepturi laborum sed quo delectus,
+        beatae dolores officiis maiores minus exercitationem labore quas ducimus
+        consequatur.
+      </main>
+    </>
   );
 }
 

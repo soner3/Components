@@ -18,7 +18,7 @@ export default function Sidebar({
         isClicked
           ? "md:rounded-r-2xl p-2"
           : "-translate-x-full md:translate-x-0 md:w-[70px]"
-      } duration-500 flex flex-col text-white from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700 left-0 fixed h-full md:rounded-none rounded-r-2xl w-[280px] z-20 shadow-2xl`}
+      } duration-500 flex flex-col text-white from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700 left-0 fixed h-full md:rounded-none md: rounded-r-2xl w-[280px] z-20 shadow-2xl`}
     >
       <SidebarHeader
         icon={
