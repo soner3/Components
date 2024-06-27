@@ -14,14 +14,17 @@ export default function SidebarFooter({
   return (
     <>
       {isClicked ? (
-        <div className="w-full mb-16">
-          <a href={href} className="">
-            <li className="p-2 font-medium hover:bg-slate-200 hover:bg-opacity-40 hover:cursor-pointer rounded-md flex items-center gap-3">
-              <div>{icon}</div>
-              <p>{children}</p>
-            </li>
-          </a>
-        </div>
+        <>
+          <hr />
+          <div className="w-full mt-2 mb-16">
+            <a href={href} className="">
+              <li className="p-2 font-medium hover:bg-slate-200 hover:bg-opacity-40 hover:cursor-pointer rounded-md flex items-center gap-3">
+                <div>{icon}</div>
+                <p>{children}</p>
+              </li>
+            </a>
+          </div>
+        </>
       ) : (
         <div className="w-full mb-14">
           <a href={href} className="">

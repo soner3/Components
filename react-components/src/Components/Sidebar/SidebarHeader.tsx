@@ -1,6 +1,6 @@
-import { BsArrowLeftCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill, BsSearch } from "react-icons/bs";
 import Logo from "../Navbar/Logo";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 interface SidebarPropTypes {
   icon: ReactNode;
@@ -13,6 +13,17 @@ export default function SidebarHeader({
   handleIsClicked,
   isClicked,
 }: SidebarPropTypes) {
+  const [search, setSearch] = useState<string>("");
+
+  function handleSearchChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(event.target.value);
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSearch("");
+  }
+
   return (
     <>
       {isClicked ? (
@@ -26,6 +37,29 @@ export default function SidebarHeader({
               <BsArrowLeftCircleFill className="size-7" />
             </button>
           </div>
+          <hr className="mb-2" />
+
+          <form
+            method="get"
+            onSubmit={handleSubmit}
+            className="rounded-full md:hidden justify-center flex my-2"
+          >
+            <button
+              type="submit"
+              className="border hover:bg-slate-200 hover:bg-opacity-40 px-3 flex justify-center items-center rounded-l-full"
+            >
+              <BsSearch className="size-5" />
+            </button>
+            <input
+              type="search"
+              name="search"
+              id="searchId"
+              value={search}
+              placeholder="Search"
+              onChange={handleSearchChange}
+              className="rounded-r-full p-2 focus:ring-2 duration-500 outline-none w-64 xl:w-96 dark:text-black"
+            />
+          </form>
         </>
       ) : (
         <>
