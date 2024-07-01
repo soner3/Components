@@ -13,7 +13,7 @@ export default function Navbar({
   isClicked,
 }: NavbarPropTypes) {
   return (
-    <nav className="flex justify-between p-2 top-0 w-screen dark:border-black border bg-transparent bg-white text-black dark:text-white dark:bg-slate-900 shadow-xl">
+    <header className="flex justify-between z-20 p-2 top-0 w-full dark:border-black border bg-transparent bg-white text-black dark:text-white dark:bg-slate-900 shadow-xl">
       <div className="flex justify-center items-center gap-3">
         <MenuButton handleIsClicked={handleIsClicked} isClicked={isClicked} />
         <a href="#">
@@ -23,6 +23,6 @@ export default function Navbar({
 
       <Search />
       <Darkmode />
-    </nav>
+    </header>
   );
 }

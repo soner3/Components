@@ -1,26 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsCircleHalf, BsMoonStarsFill, BsSun } from "react-icons/bs";
 
 export default function Darkmode() {
-  const [theme, setTheme] = useState<string>("");
-
-  useEffect(() => {
-    const storedTheme: string | null = localStorage.getItem("theme");
-    if (storedTheme === null) {
-      setTheme("System");
-    } else {
-      setTheme(storedTheme);
-    }
-  }, []);
+  const [theme, setTheme] = useState<string>(getTheme());
 
   function handleTheme(event: React.ChangeEvent<HTMLSelectElement>) {
     const selectedTheme = event.target.value;
     setTheme(selectedTheme);
-    if (selectedTheme === "Light") {
+    if (selectedTheme === "light") {
       setLightMode();
-    } else if (selectedTheme === "Dark") {
+    } else if (selectedTheme === "dark") {
       setDarkMode();
-    } else if (selectedTheme === "System") {
+    } else if (selectedTheme === "system") {
       setSystemMode();
     }
   }
@@ -28,9 +19,9 @@ export default function Darkmode() {
   return (
     <div className="flex justify-center items-center ">
       <div className="border h-full px-1 rounded-l-full flex justify-center items-center dark:border-black">
-        {theme === "System" ? (
+        {theme === "system" ? (
           <BsCircleHalf className="size-6 ml-1 m-1" />
-        ) : theme === "Dark" ? (
+        ) : theme === "dark" ? (
           <BsMoonStarsFill className="size-6 ml-1 m-1" />
         ) : (
           <BsSun className="size-6 ml-1 m-1" />
@@ -43,21 +34,21 @@ export default function Darkmode() {
         value={theme}
         onChange={handleTheme}
       >
-        <option value="Light">Light</option>
-        <option value="Dark">Dark</option>
-        <option value="System">System</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="system">System</option>
       </select>
     </div>
   );
 }
 
 function setLightMode(): void {
-  localStorage.theme = "Light";
+  localStorage.theme = "light";
   applyTheme();
 }
 
 function setDarkMode(): void {
-  localStorage.theme = "Dark";
+  localStorage.theme = "dark";
   applyTheme();
 }
 
@@ -68,12 +59,23 @@ function setSystemMode(): void {
 
 function applyTheme(): void {
   if (
-    localStorage.theme === "Dark" ||
+    localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&
       window.matchMedia("(prefers-color-scheme: dark)").matches)
   ) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
+  }
+}
+
+function getTheme(): string {
+  const storedTheme: string | null = localStorage.getItem("theme");
+  if (storedTheme === null) {
+    applyTheme();
+    return "system";
+  } else {
+    applyTheme();
+    return storedTheme;
   }
 }

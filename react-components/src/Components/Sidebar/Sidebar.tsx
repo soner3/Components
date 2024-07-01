@@ -13,12 +13,12 @@ export default function Sidebar({
   handleIsClicked,
 }: SidebarPropTypes) {
   return (
-    <aside
-      className={`bg-gradient-to-b  ${
+    <nav
+      className={`${
         isClicked
-          ? "md:rounded-r-2xl p-2"
+          ? "md:rounded-r-2xl p-2 z-20"
           : "-translate-x-full md:translate-x-0 md:w-[70px]"
-      } duration-500 flex flex-col text-white from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700 left-0 fixed h-full md:rounded-none md: rounded-r-2xl w-[280px] z-20 shadow-2xl`}
+      } fixed z-0 md:z-20 h-full bg-gradient-to-b duration-500 flex flex-col text-white from-cyan-400 to-blue-500 dark:from-cyan-600 dark:to-blue-700 left-0 md:rounded-none   rounded-r-2xl w-[280px]  shadow-2xl`}
     >
       <SidebarHeader
         icon={
@@ -45,6 +45,6 @@ export default function Sidebar({
           Settings
         </SidebarFooter>
       )}
-    </aside>
+    </nav>
   );
 }
